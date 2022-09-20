@@ -10,7 +10,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib as plt
-df=pd.read_csv("https://github.com/mangospace/ACO-2022-Performance-Explorer-V1/blob/main/MSSP_2021.csv")  
+df=pd.read_csv("https://raw.githubusercontent.com/mangospace/ACO-2022-Performance-Explorer-V1/main/MSSP_2021.csv")  
 df['ACO_Name']= df['ACO_Name'].str.replace("Accountable Care Organization","")
 df['ACO_Name']= df['ACO_Name'].str.replace("Aco","")
 df['ACO_Name']= df['ACO_Name'].str.replace("Accountable Care Network","")
