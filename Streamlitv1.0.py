@@ -421,6 +421,7 @@ plt.show()
 st.pyplot(fig)
 
 st.subheader("SNF expenses in ACO")
+st.caption(f"Please mind that the data covers launch of PDPM (Oct '19) and PHE")
 df_sav=dfmerge[['ACO_Name','year','CapAnn_SNF','ACO_ID']]
 df_sav.CapAnn_SNF =df_sav.CapAnn_SNF.apply(pd.to_numeric, errors='coerce')
 mat=list(df3.ACO_ID)
@@ -647,7 +648,7 @@ for j in range(len(tacky1)):
 #    print(df_sav.loc[(df_sav['ACO_ID'] == tacky1[j])])
     dftacky1.append(df_sav.loc[(df_sav['ACO_ID'] == tacky1[j])])
     dftacky1[j]= dftacky1[j].sort_values(by=['year'])
-    ax.set_title("Screening for Colon Cancer")
+    ax.set_title("Screening for Breast Cancer")
     ax.set_xlabel('Year')
     ax.set_ylabel('% Members screened for Breast Cancer')
     plt.plot(dftacky1[j].year.astype(int), dftacky1[j].QualityID_112,  linewidth=3)
