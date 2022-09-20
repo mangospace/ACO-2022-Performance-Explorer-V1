@@ -790,8 +790,8 @@ st.caption(f"Median Length of Stay for members (Skilled Nursing Facilities) for 
 st.caption(f"Median Admits per thousand members (Inpatient Rehabilitation) for all ACOs: {ADM_Rehab_med}")
 
 #Readmissions
-st.caption(f"Median Readmission Rate for all ACOs: {Measure_479_med}")
-st.caption(f"Median Readmission Rate for all 'High Revenue' ACOs: {Measure_479_medH}")
+st.caption(f"Median Readmission Rate for all ACOs: {Measure_479_med}%")
+st.caption(f"Median Readmission Rate for all 'High Revenue' ACOs: {Measure_479_medH}%")
 
 #admissions of complex patients
 st.caption(f"Median Admission per 1000 complex members for all ACOs: {Measure_MCC1_med}")
