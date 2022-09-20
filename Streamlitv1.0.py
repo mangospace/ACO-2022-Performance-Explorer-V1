@@ -7,10 +7,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly
-.express
-
- as px
+import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib as plt
 df=pd.read_csv("https://github.com/mangospace/ACO-2022-Performance-Explorer-V1/blob/main/MSSP_2021.csv")  
