@@ -118,8 +118,9 @@ df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['CMS_HCC_RiskScore_AGND_PY'].media
 
 df1=df
 
-st.title('ACO 2022 Performance Explorer')
-st.caption('Made with  \u2764\uFE0F @manas8u in Python and Streamlit')
+st.title('ACO 2022 Performance Explorer V0.0')
+st.caption('Made with \u2764\uFE0F @manas8u in Python and Streamlit')
+st.caption('Understand the somewhat \U0001F479 nature of this version')
 st.write("This is a analytics report to help ACOs understand and contextualize their performance.")
 st.write("This is a analytics report to help ACOs understand and contextualize their performance.")
 st.write('Please start by sharing the ACO of interest and helping customize comparison ACOs')
@@ -127,8 +128,9 @@ st.write('To tailor the comparison, what might be your ACO of interest. You can 
 """https://data.cms.gov/medicare-shared-savings-program/performance-year-financial-and-quality-results/data"""
 val3 = st.text_input("What is your ACO ID?")
 val3=val3.upper()
-st.subheader(f"You have choosen {val3} : {df1.loc[df1['ACO_ID']==val3,'ACO_Name'].values[0]}")
-ACO_head= df1.loc[df1['ACO_ID']==val3,'ACO_Name'].values[0][0:10]
+ACO_head1= df1.loc[df1['ACO_ID']==val3,'ACO_Name'].values[0]
+st.subheader(f"You have choosen {val3} : {ACO_head1}")
+ACO_head= ACO_head1[0:10]
 st.subheader("To tailor the comparison, its important to identify comparable ACOs")
 
 st.write("If ACO participants spent >35% of total Medicare Parts A and B Fee For Service revenue for the performance year, in your ACO participants CMS considers your ACO as 'high revenue'.")
