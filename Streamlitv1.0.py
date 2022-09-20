@@ -71,7 +71,7 @@ P_EM_PCP_Vis_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['P_EM_PCP_Vis'].
 
 #ADK  for all the ACOs
 ADM_S_Trm_med=df['ADM_S_Trm'].median() #237.0
-ADM_S_Trm_mean=df['ADM_S_Trm'].mean() #2
+ADM_S_Trm_mean=round(df['ADM_S_Trm'].mean() , 2) #2
 ADM_S_Trm_min=df['ADM_S_Trm'].min() #112
 #ADK  for hospital ACOs
 ADM_S_Trm_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ADM_S_Trm'].median() #238.5
@@ -97,8 +97,8 @@ df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ADM_Rehab'].min() #11
 
 
 #Readmissions
-Measure_479_med=df['Measure_479'].median() #.1553
-Measure_479_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['Measure_479'].median() #.15325
+Measure_479_med=df['Measure_479'].median() * 100 #.1553
+Measure_479_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['Measure_479'].median() * 100 #.15325
 Measure_479_min=df['Measure_479'].min() #.1553
 Measure_479_minH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['Measure_479'].min()#.15325
 
