@@ -77,6 +77,11 @@ ADM_S_Trm_min=df['ADM_S_Trm'].min() #112
 ADM_S_Trm_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ADM_S_Trm'].median() #238.5
 ADM_S_Trm_minH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ADM_S_Trm'].min() #112
 
+#ED visits
+df['ED_V']=df['P_EDV_Vis']+ df['P_EDV_Vis_HOSP']
+ED_V_med= round(df['ED_V'].median() , 2)
+ED_V_medH=round(df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ED_V'].median() , 2)
+
 #SNF ADK  for hospital ACOs
 P_SNF_ADM_med=df['P_SNF_ADM'].median() #45
 P_SNF_ADM_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['P_SNF_ADM'].median() #45
@@ -778,6 +783,11 @@ st.caption(f"Median PCP visits per 1000 members for 'High Revenue' ACOs : {P_EM_
 st.caption(f"Median Admits per thousand members (Short Term Hospitals) for all ACOs: {ADM_S_Trm_med}")
 st.caption(f"Mean Admits per thousand members (Short Term Hospitals) for all ACOs: {ADM_S_Trm_mean}")
 st.caption(f"Median Admits per thousand members (Short Term Hospitals) for 'High Revenue' ACOs : {ADM_S_Trm_medH}")
+
+#ADK  for all the ACOs
+st.caption(f"Median ED visits per thousand members (including that result in admission) for all ACOs: {ED_V_med}")
+st.caption(f"Median ED visits per thousand members (including that result in admission)  for 'High Revenue' ACOs : {ED_V_medH}")
+
 
 #SNF ADK  for hospital ACOs
 st.caption(f"Median Admits per thousand members (Skilled Nursing Facilities) for all ACOs: {P_SNF_ADM_med}")
