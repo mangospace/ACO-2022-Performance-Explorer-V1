@@ -78,9 +78,17 @@ ADM_S_Trm_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ADM_S_Trm'].median
 ADM_S_Trm_minH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ADM_S_Trm'].min() #112
 
 #ED visits
-#df['ED_V']=df['P_EDV_Vis']+ df['P_EDV_Vis_HOSP']
-#ED_V_med= round(df['ED_V'].median() , 2)
-#ED_V_medH=round(df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ED_V'].median() , 2)
+df['P_EDV_Vis']=df['P_EDV_Vis'].str.replace(",","")
+df['P_EDV_Vis_HOSP']=pd.to_numeric(df['P_EDV_Vis_HOSP'])
+df['P_EDV_Vis']=pd.to_numeric(df['P_EDV_Vis'])
+df['ED_V']=df['P_EDV_Vis'] + df['P_EDV_Vis_HOSP']
+#df['ED_V']=df['P_EDV_Vis', 'P_EDV_Vis_HOSP'].sum(axis = 1, skipna = True)
+df['admfrac']=round(df['P_EDV_Vis_HOSP'] *100/ (df['P_EDV_Vis']+df['P_EDV_Vis']),2)
+ED_V_med= round(df['ED_V'].median() , 2)
+ED_V_medH=round(df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ED_V'].median() , 2)
+admfrac_med= round(df['admfrac'].median() , 1)
+admfrac_medH=round(df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['admfrac'].median() , 1)
+
 
 #SNF ADK  for hospital ACOs
 P_SNF_ADM_med=df['P_SNF_ADM'].median() #45
@@ -785,8 +793,8 @@ st.caption(f"Mean Admits per thousand members (Short Term Hospitals) for all ACO
 st.caption(f"Median Admits per thousand members (Short Term Hospitals) for 'High Revenue' ACOs : {ADM_S_Trm_medH}")
 
 #EDK  for all the ACOs
-#st.caption(f"Median ED visits per thousand members (including that result in admission) for all ACOs: {ED_V_med}")
-#st.caption(f"Median ED visits per thousand members (including that result in admission)  for 'High Revenue' ACOs : {ED_V_medH}")
+st.caption(f"Median ED visits per thousand members (including that result in admission) for all ACOs: {ED_V_med}")
+st.caption(f"Median ED visits per thousand members (including that result in admission)  for 'High Revenue' ACOs : {ED_V_medH}")
 
 
 #SNF ADK  for hospital ACOs
