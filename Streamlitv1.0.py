@@ -71,6 +71,7 @@ P_EM_PCP_Vis_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['P_EM_PCP_Vis'].
 
 #ADK  for all the ACOs
 ADM_S_Trm_med=df['ADM_S_Trm'].median() #237.0
+ADM_S_Trm_mean=df['ADM_S_Trm'].mean() #2
 ADM_S_Trm_min=df['ADM_S_Trm'].min() #112
 #ADK  for hospital ACOs
 ADM_S_Trm_medH=df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['ADM_S_Trm'].median() #238.5
@@ -126,6 +127,7 @@ st.caption('Please share your feedback and suggestions. DM @manas8u')
 
 st.write("This is a analytics report to help ACOs understand and contextualize their performance.")
 st.write('This report is customized by entering ACO of interest.')
+st.write('Overall ACO performance statistics are available towards the end of the report.')
 st.write('To tailor the comparison, what might be your ACO of interest. You can look up your ACO_ID on CMS  website. Please toggle between Basic filtering and Advanced filtering till you can identify ACO that you are looking for.') 
 """https://data.cms.gov/medicare-shared-savings-program/performance-year-financial-and-quality-results/data"""
 val3 = st.text_input("What is your ACO ID?")
@@ -767,6 +769,33 @@ for j in range(len(tacky1)):
 plt.show()
 st.pyplot(fig)
 
+
+st.subheader(f"2021 MSSP ACO Performance Statistics")
+st.caption(f"Median PCP visits per 1000 members for all ACOs: {P_EM_PCP_Vis_med}")
+st.caption(f"Median PCP visits per 1000 members for 'High Revenue' ACOs : {P_EM_PCP_Vis_medH}")
+
+#ADK  for all the ACOs
+st.caption(f"Median Admits per thousand members (Short Term Hospitals) for all ACOs: {ADM_S_Trm_med}")
+st.caption(f"Mean Admits per thousand members (Short Term Hospitals) for all ACOs: {ADM_S_Trm_mean}")
+st.caption(f"Median Admits per thousand members (Short Term Hospitals) for 'High Revenue' ACOs : {ADM_S_Trm_medH}")
+
+#SNF ADK  for hospital ACOs
+st.caption(f"Median Admits per thousand members (Skilled Nursing Facilities) for all ACOs: {P_SNF_ADM_med}")
+st.caption(f"Median Admits per thousand members (Skilled Nursing Facilities) for 'High Revenue' ACOs : {P_SNF_ADM_medH}")
+
+st.caption(f"Median Length of Stay for members in Skilled Nursing Facilities for all ACOs: {SNF_LOS_med}")
+st.caption(f"Median Length of Stay for members (Skilled Nursing Facilities) for 'High Revenue' ACOs : {SNF_LOS_medH}")
+
+#Rehab Hospital LOS  for hospital ACOs
+st.caption(f"Median Admits per thousand members (Inpatient Rehabilitation) for all ACOs: {ADM_Rehab_med}")
+
+#Readmissions
+st.caption(f"Median Readmission Rate for all ACOs: {Measure_479_med}")
+st.caption(f"Median Readmission Rate for all 'High Revenue' ACOs: {Measure_479_medH}")
+
+#admissions of complex patients
+st.caption(f"Median Admission per 1000 complex members for all ACOs: {Measure_MCC1_med}")
+st.caption(f"Median Admission per 1000 complex members for all 'High Revenue' ACOs: {Measure_MCC1_medH}")
 
 
 
