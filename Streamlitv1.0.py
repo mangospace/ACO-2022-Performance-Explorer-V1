@@ -119,8 +119,11 @@ df.loc[(df['Rev_Exp_Cat'] == "High Revenue")]['CMS_HCC_RiskScore_AGND_PY'].media
 df1=df
 
 st.title('ACO 2022 Performance Explorer V0.0')
+st.header('Please dont be deterred by ugly red box(es). They disappear as you enter required fields.')
 st.caption('Made with \u2764\uFE0F @manas8u in Python and Streamlit')
 st.caption('Understand the somewhat \U0001F479 nature of this version')
+st.caption('Please share your feedback and suggestions. DM @manas8u')
+
 st.write("This is a analytics report to help ACOs understand and contextualize their performance.")
 st.write("This is a analytics report to help ACOs understand and contextualize their performance.")
 st.write('Please start by sharing the ACO of interest and helping customize comparison ACOs')
