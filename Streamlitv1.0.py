@@ -224,8 +224,8 @@ if val1=="YES":
 if val1=="NO":
     st.write(f"This list has 'Low Revenue' ACOs only")
 df.style.hide_index()
-st.dataframe(df3[['ACO_ID','ACO_Name','ACO_State','Sav_Rate']])
 df3=df3.sort_values(by=['Sav_Rate'],ascending=False)
+st.dataframe(df3[['ACO_ID','ACO_Name','ACO_State','Sav_Rate']])
 
 ptperpcp_int=int(df3.loc[df3['ACO_ID']==val3,'ptperpcp'].values[0])
 ptperpcp_ran=df3.ptperpcp.max()-df3.ptperpcp.min()
